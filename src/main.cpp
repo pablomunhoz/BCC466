@@ -117,6 +117,13 @@ int main(int argc, char* argv[])
                          fo = avalia(inst, sol);
                          printf("\nFO: %.2f\n", fo);
                     break;
+                    case 4:
+                         cout<<" ### Busca Local Realocacao (BI) ### " <<endl;
+                         sol = DescidaRealocacaoBI(inst, sol);
+                         impSol(sol);
+                         fo = avalia(inst, sol);
+                         printf("\nFO: %.2f\n", fo);
+                    break;
                     default:
                         cout<< "Opção Inválida" << endl;
                     break;

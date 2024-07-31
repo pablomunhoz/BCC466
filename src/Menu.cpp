@@ -59,7 +59,7 @@ int menuBuscaLocal()
     printf("3 - Descida Troca (FI).\n");
     printf("4 - Descida Realocação (BI).\n");
     printf("5 - Descida Realocação (FI).\n"); 
-    printf("6 - Descida Randômica");   
+    printf("6 - Descida Randômica\n");   
     do
     {
         printf("Digite a opção escolhida: ");

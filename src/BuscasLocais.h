@@ -14,4 +14,8 @@ Solucao BITrocaO1(Instancia& inst, Solucao& sol);
 Solucao DescidaTrocaBI(Instancia& inst, Solucao& sol);
 Solucao DescidaTrocaBIO1(Instancia& inst, Solucao& sol);
 
+void movimentoRealocacao(Solucao& sol, int i, int pos);
+Solucao BIRealocacao(Instancia& inst, Solucao& sol);
+Solucao DescidaRealocacaoBI(Instancia& inst, Solucao& sol);
+
 #endif
