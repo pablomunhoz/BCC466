@@ -19,6 +19,10 @@ float custoMovimentoTroca(Instancia&inst, Solucao& sol, int posI, int posJ)
     posteriorJ = posJ+1;
     if(anteriorI < 0)
         anteriorI = inst.n - 1;
+    if(posteriorI >= inst.n)
+        posteriorI = 0;
+    if(anteriorJ < 0)
+        anteriorJ = inst.n - 1;
     if(posteriorJ >= inst.n)
         posteriorJ = 0;
 

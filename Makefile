@@ -14,8 +14,8 @@ all:
 
 
 #Juntando todos os objetos e gerando o programa
-$(EXECUTAVEL): $(PATHTEMP)/Menu.o $(PATHTEMP)/Instancia.o $(PATHTEMP)/Solucao.o $(PATHTEMP)/Avaliador.o $(PATHTEMP)/HeuristicasConstrutivas.o $(PATHTEMP)/BuscasLocais.o $(PATHTEMP)/MultiStart.o $(PATHTEMP)/GRASP.o $(PATHTEMP)/main.o
-	$(CPP) $(CCFLAGS) $(PATHTEMP)/Menu.o $(PATHTEMP)/Instancia.o $(PATHTEMP)/Solucao.o $(PATHTEMP)/Avaliador.o $(PATHTEMP)/HeuristicasConstrutivas.o $(PATHTEMP)/BuscasLocais.o $(PATHTEMP)/MultiStart.o $(PATHTEMP)/GRASP.o $(PATHTEMP)/main.o $(CCLNFLAGS) $(LSFLAGS) -o $(PATHEXEC)/$(EXECUTAVEL)
+$(EXECUTAVEL): $(PATHTEMP)/Menu.o $(PATHTEMP)/Instancia.o $(PATHTEMP)/Solucao.o $(PATHTEMP)/Avaliador.o $(PATHTEMP)/HeuristicasConstrutivas.o $(PATHTEMP)/BuscasLocais.o $(PATHTEMP)/MultiStart.o $(PATHTEMP)/GRASP.o $(PATHTEMP)/SA.o $(PATHTEMP)/main.o
+	$(CPP) $(CCFLAGS) $(PATHTEMP)/Menu.o $(PATHTEMP)/Instancia.o $(PATHTEMP)/Solucao.o $(PATHTEMP)/Avaliador.o $(PATHTEMP)/HeuristicasConstrutivas.o $(PATHTEMP)/BuscasLocais.o $(PATHTEMP)/MultiStart.o $(PATHTEMP)/GRASP.o $(PATHTEMP)/SA.o $(PATHTEMP)/main.o $(CCLNFLAGS) $(LSFLAGS) -o $(PATHEXEC)/$(EXECUTAVEL)
 
 
 $(PATHTEMP)/main.o: $(PATHSRC)/main.cpp
@@ -44,6 +44,10 @@ $(PATHTEMP)/MultiStart.o: $(PATHSRC)/MultiStart.cpp
 
 $(PATHTEMP)/GRASP.o: $(PATHSRC)/GRASP.cpp
 	$(CPP) $(CCFLAGS) -c $(PATHSRC)/GRASP.cpp -o $(PATHTEMP)/GRASP.o
+
+
+$(PATHTEMP)/SA.o: $(PATHSRC)/SA.cpp
+	$(CPP) $(CCFLAGS) -c $(PATHSRC)/SA.cpp -o $(PATHTEMP)/SA.o
 
 ####################################################
 ###################### CLEAN #######################

@@ -4,6 +4,8 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include <time.h>
+#include <chrono>
 #include "Instancia.h"
 #include "Solucao.h"
 #include "Avaliador.h"
@@ -12,15 +14,19 @@
 #include "BuscasLocais.h"
 #include "MultiStart.h"
 #include "GRASP.h"
+#include "SA.h"
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
+    srand(time(NULL));
     Instancia inst;
     Solucao sol;
-    float fo; 
+    float fo,t0;
+    int SAmax; 
     string nomeArq = argv[1];
+    float tempo;
 
     int op, hc, bl, mh;
     do
@@ -146,6 +152,23 @@ int main(int argc, char* argv[])
                          impSol(sol);
                          fo = avalia(inst, sol);
                          printf("\nFO GRASP: %.2f\n", fo);
+                    break;
+                    case 3:
+                    {
+                         cout<<" ### SA ### " <<endl;
+                         auto inicio = chrono::high_resolution_clock::now();
+                         sol = VMP_GRASP(inst,0.2);
+                         SAmax = 1000;
+                         //calculando a temperatura inicial
+                         t0 = SA_temperaturaInicial(inst,sol,SAmax,2.0,0.85, 3);
+                         sol = SA(inst,sol,0.99,SAmax,t0,0.01);
+                         auto fim = chrono::high_resolution_clock::now();
+                         tempo = chrono::duration_cast<chrono::milliseconds>(fim-inicio).count();
+                         tempo/=1000;
+                         impSol(sol);
+                         fo = avalia(inst, sol);
+                         printf("\nFO SA: %.2f tempo: %.3fs\n", fo, tempo);
+                    }
                     break;
                     default:
                         cout<< "Opção Inválida" << endl;
